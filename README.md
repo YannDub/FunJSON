@@ -5,7 +5,7 @@ JSON architecture in your application.
 
 ## Following project
 
-- [FunParser](https://github.com/YannDub/FunParser) : A functionnal Parser write in Java
+- [FunParser](https://github.com/YannDub/FunParser) : A functionnal Parser wrote in Java
 
 ## ToDo List
 
