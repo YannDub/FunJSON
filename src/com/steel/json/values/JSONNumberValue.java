@@ -1,6 +1,7 @@
 package com.steel.json.values;
 
 import com.steel.json.JSONValue;
+import com.steel.json.writers.Writer;
 
 public class JSONNumberValue extends JSONValue<Double> {
 	
@@ -13,5 +14,10 @@ public class JSONNumberValue extends JSONValue<Double> {
 			return this.t.equals(((JSONNumberValue) obj).t);
 		}
 		return false;
+	}
+
+	@Override
+	public void accept(Writer writer) {
+		writer.visitNumber(this);
 	}
 }

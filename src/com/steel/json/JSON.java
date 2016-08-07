@@ -1,11 +1,13 @@
 package com.steel.json;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import com.steel.json.values.JSONObject;
+import com.steel.json.writers.JSONWriter;
 import com.steel.parser.JSONParser;
 
 public class JSON {
@@ -27,5 +29,16 @@ public class JSON {
 			tmp.replaceAll("[\r\n]+", "");
 			this.jsonObject = (JSONObject) JSONParser.json(tmp);
 		}
+	}
+	
+	public void write(File file) throws IOException {
+		FileWriter fw = new FileWriter(file);
+		String json = new JSONWriter(this).write();
+		fw.write(json);
+		fw.close();
+	}
+	
+	public JSONObject getJsonObject() {
+		return this.jsonObject;
 	}
 }

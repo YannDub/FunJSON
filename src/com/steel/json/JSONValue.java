@@ -1,5 +1,7 @@
 package com.steel.json;
 
+import com.steel.json.writers.Writer;
+
 public abstract class JSONValue<T> {
 	
 	protected T t;
@@ -11,5 +13,7 @@ public abstract class JSONValue<T> {
 	public T get() {
 		return this.t;
 	}
+	
+	public abstract void accept(Writer writer);
 	
 }

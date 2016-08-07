@@ -1,6 +1,7 @@
 package com.steel.json.values;
 
 import com.steel.json.JSONValue;
+import com.steel.json.writers.Writer;
 
 public class JSONStringValue extends JSONValue<String> {
 	
@@ -17,6 +18,10 @@ public class JSONStringValue extends JSONValue<String> {
 	
 	public int hashCode() {
 		return this.t.hashCode();
-		
+	}
+
+	@Override
+	public void accept(Writer writer) {
+		writer.visitString(this);
 	}
 }

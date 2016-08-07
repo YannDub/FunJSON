@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.steel.json.JSONValue;
+import com.steel.json.writers.Writer;
 
 public class JSONObject extends JSONValue<HashMap<JSONStringValue, JSONValue<?>>> {
 	
@@ -23,5 +24,10 @@ public class JSONObject extends JSONValue<HashMap<JSONStringValue, JSONValue<?>>
 		}
 		
 		return false;
+	}
+
+	@Override
+	public void accept(Writer writer) {
+		writer.visitObject(this);
 	}
 }

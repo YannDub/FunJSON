@@ -1,6 +1,7 @@
 package com.steel.json.values;
 
 import com.steel.json.JSONValue;
+import com.steel.json.writers.Writer;
 
 public class JSONBooleanValue extends JSONValue<Boolean> {
 	
@@ -13,5 +14,10 @@ public class JSONBooleanValue extends JSONValue<Boolean> {
 			return this.t.equals(((JSONBooleanValue) obj).t);
 		}
 		return false;
+	}
+
+	@Override
+	public void accept(Writer writer) {
+		writer.visitBoolean(this);
 	}
 }

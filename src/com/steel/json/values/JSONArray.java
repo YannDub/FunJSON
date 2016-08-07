@@ -3,6 +3,7 @@ package com.steel.json.values;
 import java.util.List;
 
 import com.steel.json.JSONValue;
+import com.steel.json.writers.Writer;
 
 public class JSONArray extends JSONValue<JSONValue<?>[]>{
 	
@@ -30,5 +31,10 @@ public class JSONArray extends JSONValue<JSONValue<?>[]>{
 			return b || (this.t.length == 0 && ((JSONArray) obj).t.length == 0);
 		}
 		return false;
+	}
+
+	@Override
+	public void accept(Writer writer) {
+		writer.visitArray(this);
 	}
 }

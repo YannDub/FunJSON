@@ -1,6 +1,7 @@
 package com.steel.json.values;
 
 import com.steel.json.JSONValue;
+import com.steel.json.writers.Writer;
 
 public class JSONNullValue extends JSONValue<Object>{
 	
@@ -13,5 +14,10 @@ public class JSONNullValue extends JSONValue<Object>{
 			return ((JSONNullValue) obj).t == null;
 		}
 		return false;
+	}
+
+	@Override
+	public void accept(Writer writer) {
+		writer.visitNull(this);
 	}
 }
