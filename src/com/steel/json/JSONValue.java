@@ -1,5 +1,6 @@
 package com.steel.json;
 
+import com.steel.json.exceptions.JSONPropertyNotFoundException;
 import com.steel.json.writers.Writer;
 
 public abstract class JSONValue<T> {
@@ -15,5 +16,9 @@ public abstract class JSONValue<T> {
 	}
 	
 	public abstract void accept(Writer writer);
+	
+	public JSONValue<?> getProperty(String property) throws JSONPropertyNotFoundException {
+		throw new JSONPropertyNotFoundException(property);
+	}
 	
 }

@@ -30,8 +30,8 @@ public class TestJSONWriter {
 		this.json = new JSON(this.object);
 	}
 	
-	private void testOutput(String result) {
-		assertEquals(new JSONWriter(json).write(), result);
+	private void testOutput(String expected) {
+		assertEquals(expected, new JSONWriter(json).write());
 	}
 	
 	@Test

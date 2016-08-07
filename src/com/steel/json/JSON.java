@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import com.steel.json.exceptions.JSONPropertyNotFoundException;
 import com.steel.json.values.JSONObject;
 import com.steel.json.writers.JSONWriter;
 import com.steel.parser.JSONParser;
@@ -40,5 +41,9 @@ public class JSON {
 	
 	public JSONObject getJsonObject() {
 		return this.jsonObject;
+	}
+	
+	public JSONValue<?> getProperty(String property) throws JSONPropertyNotFoundException {
+		return this.jsonObject.getProperty(property);
 	}
 }

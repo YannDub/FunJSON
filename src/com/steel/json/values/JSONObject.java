@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.steel.json.JSONValue;
+import com.steel.json.exceptions.JSONPropertyNotFoundException;
 import com.steel.json.writers.Writer;
 
 public class JSONObject extends JSONValue<HashMap<JSONStringValue, JSONValue<?>>> {
@@ -29,5 +30,11 @@ public class JSONObject extends JSONValue<HashMap<JSONStringValue, JSONValue<?>>
 	@Override
 	public void accept(Writer writer) {
 		writer.visitObject(this);
+	}
+	
+	public JSONValue<?> getProperty(String property) throws JSONPropertyNotFoundException {
+		JSONValue<?> propertyValue = this.get().get(new JSONStringValue(property));
+		if(propertyValue == null) throw new JSONPropertyNotFoundException(property);
+		return propertyValue;
 	}
 }
